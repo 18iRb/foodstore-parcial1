@@ -1,10 +1,10 @@
 import { PRODUCTS } from "../../../data/data";
 import { categorias } from "../../../data/data";
 import { formatPrice } from "../../../utils/format";
-import type { CartItem } from "../../../types/product";
+import type { CartItem, Product } from "../../../types/product";
 
 const productList = document.querySelector(".product-list") as HTMLElement;
-function renderProducts(products: typeof PRODUCTS) {
+function renderProducts(products: Product[]) {
     if (!productList) return;
 
     productList.innerHTML = "";
@@ -19,14 +19,14 @@ function renderProducts(products: typeof PRODUCTS) {
         <h3 class="product-name">${p.nombre}</h3>
         <p class="product-desc">${p.descripcion}</p>
         <div class="product-actions">
-        <p class="product-price">${formatPrice(p.precio)}</p>
-        <button class="btn btn-add" ${!p.disponible ? "disabled" : ""}>
-        ${p.disponible
+            <p class="product-price">${formatPrice(p.precio)}</p>
+            <button class="btn btn-add" ${!p.disponible ? "disabled" : ""}>
+                ${p.disponible
                 ? "Agregar +"
                 : "No disponible"}
             </button>
-            </div>
-            `;
+        </div>
+        `;
 
         productList.appendChild(card);
     });
@@ -40,8 +40,6 @@ function renderCategories() {
 
     categoriesList.innerHTML = "";
 
-    /* data-* attribute permite guardar informacion extra en un elemento */
-    // Opción "Todas"
     const allElement = document.createElement("LI");
     allElement.className = "category-item";
     allElement.innerHTML = `
@@ -52,7 +50,6 @@ function renderCategories() {
 
     categoriesList.appendChild(allElement);
 
-    // Categorías dinámicas
     categorias.forEach(c => {
         const element = document.createElement("LI");
         element.className = "category-item";

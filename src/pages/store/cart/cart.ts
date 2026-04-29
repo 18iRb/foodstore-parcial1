@@ -107,7 +107,7 @@ function attachCartEvents(cart: CartItem[]) {
         });
     }
 
-    const checkoutBtn = document.querySelector("#checkout");
+    const checkoutBtn = document.querySelector(".btn-checkout");
     if (checkoutBtn) {
         checkoutBtn.addEventListener("click", () => {
             alert("El checkout no está disponible en esta versión 🚫");

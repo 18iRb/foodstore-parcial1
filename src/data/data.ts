@@ -48,7 +48,7 @@ export const categorias: ICategory[] = [
 
 export const PRODUCTS: Product[] = [
   {
-    id: 1,
+    id:1 ,
     eliminado: false,
     createdAt: "2024-02-01T08:00:00",
     nombre: "Pizza Muzzarella",

@@ -315,7 +315,6 @@ flex-basis (18rem) → el tamaño base del elemento, en este caso 18rem de ancho
 
 .btn-adding {
     background-color: orangered;
-    color: white;
     pointer-events: none;
 }
 
